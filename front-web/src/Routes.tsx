@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import NavBar from './core/components/NavBar';
 
 import Admin from './pages/Admin';
@@ -12,13 +12,13 @@ const Routes = () => (
     <NavBar />
     <Switch>
       <Route path="/" exact component={Home} />
- 
       <Route path="/products"exact>
         <Catalog />
       </Route>
       <Route path="/products/:productId">
         <ProdutDetails />
       </Route>
+      <Redirect from ="/admin" to="/admin/products" exact/>
       <Route path="/admin">
         <Admin />
       </Route>
